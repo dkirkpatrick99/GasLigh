@@ -1,4 +1,4 @@
-import merge from 'lodash/merge';
+// import merge from 'lodash/merge';
 
 import { RECEIVE_CATEGORIES } from '../actions/category_action';
 
@@ -8,7 +8,7 @@ const categoryReducer = (state = {}, action) => {
     case RECEIVE_CATEGORIES:
       const categories = {};
       action.categories.forEach(category => categories[category.id] = category);
-      return merge({}, state, categories);
+      return Object.assign({}, state, categories);
     default:
       return state;
   }
